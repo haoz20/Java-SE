@@ -7,11 +7,17 @@ public class Employee {
     private String name;
     private int employeeId;
     private double basicSalary;
+    private static int count;
 
-    public Employee(String name, int employeeId, double basicSalary) {
+    public Employee(String name, double basicSalary) {
         this.name = name;
-        this.employeeId = employeeId;
+        ++count;
+        this.employeeId = count;
         this.basicSalary = basicSalary;
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     public String getName() {
