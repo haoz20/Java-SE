@@ -2,15 +2,22 @@ package com.example.service;
 
 import com.example.model.*;
 
-import java.beans.VetoableChangeListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class VehicleRegisterService {
     private Vehicle vehicle;
-    public Vehicle[] vehicles = new Vehicle[100];
+    public static Vehicle[] vehicles = new Vehicle[100];
     public BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 
     public void create() throws IOException {
         commonRegisterProcess();
@@ -24,8 +31,8 @@ public class VehicleRegisterService {
         System.out.print("Enter model: ");
         String model = br.readLine();
 
-        System.out.print("Enter vehicle type (car/truck/motorcycle): ");
-        String type = br.readLine();
+        this.vehicle = new Vehicle(brand, model);
+
 
     }
 
@@ -33,27 +40,11 @@ public class VehicleRegisterService {
 
     }
 
-
-    public int isCar() throws IOException {
-        System.out.print("Enter number of doors: ");
-        int doors = Integer.parseInt(br.readLine());
-        return doors;
+    public void display() {
+        for (int i = 0; i < Vehicle.getVehicleCount(); i++) {
+            vehicles[i].displayInfo();
+        }
+        System.out.println(Vehicle.getVehicleCount());
     }
-
-    public double isTruck() throws IOException {
-        System.out.print("Enter payload capacity: ");
-        double payloadCapacity = Double.parseDouble(br.readLine());
-        return payloadCapacity;
-    }
-
-    public boolean isMotorcycle() throws IOException {
-        System.out.print("Does the motorcycle has a side car? (yes/no) ");
-        String hasSideCar = br.readLine();
-
-        return hasSideCar.equalsIgnoreCase("yes");
-    }
-
-
-
 
 }

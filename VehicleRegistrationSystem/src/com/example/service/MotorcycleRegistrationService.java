@@ -1,11 +1,12 @@
 package com.example.service;
 
+import com.example.model.*;
 import java.io.IOException;
 
 public class MotorcycleRegistrationService extends VehicleRegisterService {
     @Override
     public void registerProcess() throws IOException {
-        Boolean hasSideCar;
+        Boolean hasSideCar = null;
         System.out.print("Does the motorcycle has sdie car? (Yes/No): ");
         String answer = br.readLine();
         if (answer.equalsIgnoreCase("yes")) {
@@ -14,7 +15,9 @@ public class MotorcycleRegistrationService extends VehicleRegisterService {
             hasSideCar = false;
         }
 
-
+        Vehicle motorcycle = new Motorcycle(super.getVehicle(), hasSideCar);
+        super.setVehicle(motorcycle);
+        vehicles[Vehicle.getVehicleCount()-1] = motorcycle;
 
     }
 }

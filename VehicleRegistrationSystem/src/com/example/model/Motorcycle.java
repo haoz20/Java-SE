@@ -8,6 +8,12 @@ public class Motorcycle extends Vehicle {
         this.hasSidecar = hasSidecar;
     }
 
+    public Motorcycle(Vehicle vehicle, Boolean hasSidecar) {
+        super(vehicle);
+        this.hasSidecar = hasSidecar;
+    }
+
+
     public Boolean getHasSidecar() {
         return this.hasSidecar;
     }
@@ -18,6 +24,7 @@ public class Motorcycle extends Vehicle {
 
     @Override
     public void displayInfo() {
+        System.out.println("----------Motorcycle----------");
         super.displayInfo();
         if (this.hasSidecar) {
             System.out.println("This motorcycle has sidecar." + "\n");

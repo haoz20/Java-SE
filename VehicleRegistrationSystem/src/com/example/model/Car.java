@@ -8,6 +8,11 @@ public class Car extends Vehicle {
         this.doors = doors;
     }
 
+    public Car(Vehicle vehicle, int doors) {
+        super(vehicle);
+        this.doors = doors;
+    }
+
     public int getDoors() {
         return this.doors;
     }
@@ -18,6 +23,7 @@ public class Car extends Vehicle {
 
     @Override
     public void displayInfo() {
+        System.out.println("----------Car----------");
         super.displayInfo();
         System.out.println("Doors: " + this.doors + "\n");
     }
