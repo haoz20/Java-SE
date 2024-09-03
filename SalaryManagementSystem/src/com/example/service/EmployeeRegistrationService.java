@@ -1,9 +1,6 @@
 package com.example.service;
 
-import com.example.model.ContractEmployee;
-import com.example.model.Employee;
-import com.example.model.FullTimeEmployee;
-import com.example.model.PartTimeEmployee;
+import com.example.model.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,23 +13,40 @@ public class EmployeeRegistrationService {
     private double basicSalary;
     private String type;
 
+    public String getName() {
+        return name;
+    }
+
+    public double getBasicSalary() {
+        return basicSalary;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public Employee[] getEmployeeDB() {
+        return employeeDB;
+    }
+
+
     public void getEmployeeInfo() throws IOException {
         String flag;
         do {
-            getCommonEmployeeInfo();
-            if (type.equalsIgnoreCase("contract")) {
-                employeeDB[Employee.getCount() - 1] = this.getContractEmployeeInfo();
+            this.getCommonEmployeeInfo();
+            Employee employee = this.employeeInfo();
+            employeeDB[Employee.getCount()] = employee;
 
-            } else if (type.equalsIgnoreCase("fulltime")) {
-                employeeDB[Employee.getCount() - 1] = this.getFullTimeEmployeeInfo();
 
-            } else if (type.equalsIgnoreCase("parttime")) {
-                employeeDB[Employee.getCount() - 1] = this.getPartTimeEmployeeInfo();
-            }
             System.out.print("Do you want to add new Employee(yes/no)? ");
             flag = br.readLine();
         }while (flag.equalsIgnoreCase("yes"));
     }
+
+    public Employee employeeInfo() throws IOException {
+        return null;
+    }
+
 
     public void getCommonEmployeeInfo() throws IOException {
         System.out.print("Enter Employee Name: ");
@@ -44,37 +58,6 @@ public class EmployeeRegistrationService {
         System.out.print("Enter Employee Type (contract/fulltime/parttime): ");
         this.type = br.readLine();
     }
-
-    public ContractEmployee getContractEmployeeInfo() throws IOException {
-        System.out.print("Enter Contract Duration: ");
-        int duration = Integer.parseInt(br.readLine());
-        System.out.print("Enter Contract Amount: ");
-        Double amount = Double.parseDouble(br.readLine());
-
-        ContractEmployee contractEmp = new ContractEmployee(name, basicSalary, duration, amount);
-        return contractEmp;
-    }
-
-    public FullTimeEmployee getFullTimeEmployeeInfo() throws IOException {
-        System.out.print("Enter Allowance: ");
-        Double allowance = Double.parseDouble(br.readLine());
-        System.out.print("Enter Bonus: ");
-        Double bonus = Double.parseDouble(br.readLine());
-
-        FullTimeEmployee fulltimeEmp = new FullTimeEmployee(name, basicSalary, allowance, bonus);
-        return fulltimeEmp;
-    }
-
-    public PartTimeEmployee getPartTimeEmployeeInfo() throws IOException {
-        System.out.print("Enter Hours Worked: ");
-        int hoursWorked = Integer.parseInt(br.readLine());
-        System.out.print("Enter Hourly Rate: ");
-        Double hourlyRate = Double.parseDouble(br.readLine());
-
-        PartTimeEmployee partTimeEmp = new PartTimeEmployee(name, basicSalary, hoursWorked, hourlyRate);
-        return partTimeEmp;
-    }
-
 
 
 

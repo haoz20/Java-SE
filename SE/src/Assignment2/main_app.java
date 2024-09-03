@@ -29,7 +29,7 @@ public class main_app {
 
 
     public static void main(String[] args) throws IOException {
-        String answer = "";
+        String answer;
         do{
             inputData();
 

@@ -1,6 +1,5 @@
 package com.example.model;
 
-import java.sql.SQLOutput;
 
 public class Employee {
 
@@ -15,6 +14,7 @@ public class Employee {
         this.employeeId = count;
         this.basicSalary = basicSalary;
     }
+
 
     public static int getCount() {
         return count;
