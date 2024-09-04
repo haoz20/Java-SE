@@ -33,7 +33,6 @@ public class VehicleRegisterService {
 
         this.vehicle = new Vehicle(brand, model);
 
-
     }
 
     public void registerProcess() throws IOException {

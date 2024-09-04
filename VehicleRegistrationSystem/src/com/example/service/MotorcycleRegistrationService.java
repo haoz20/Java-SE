@@ -15,7 +15,7 @@ public class MotorcycleRegistrationService extends VehicleRegisterService {
             hasSideCar = false;
         }
 
-        Vehicle motorcycle = new Motorcycle(super.getVehicle(), hasSideCar);
+        Vehicle motorcycle = new Motorcycle(super.getVehicle().getBrand(), super.getVehicle().getModel(), hasSideCar);
         super.setVehicle(motorcycle);
         vehicles[Vehicle.getVehicleCount()-1] = motorcycle;
 

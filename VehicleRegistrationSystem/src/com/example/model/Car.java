@@ -8,10 +8,10 @@ public class Car extends Vehicle {
         this.doors = doors;
     }
 
-    public Car(Vehicle vehicle, int doors) {
-        super(vehicle);
-        this.doors = doors;
-    }
+//    public Car(Vehicle vehicle, int doors) {
+//        super(vehicle);
+//        this.doors = doors;
+//    }
 
     public int getDoors() {
         return this.doors;

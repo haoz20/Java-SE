@@ -3,7 +3,7 @@ package com.example.model;
 public class Vehicle {
     private String brand;
     private String model;
-    private static int vehicleCount = 0;
+    private static int vehicleCount = -1;
 
     public Vehicle(String brand, String model) {
         this.brand = brand;
@@ -11,10 +11,10 @@ public class Vehicle {
         vehicleCount++;
     }
 
-    public Vehicle(Vehicle vehicle) {
-        this.brand = vehicle.getBrand();
-        this.model = vehicle.getModel();
-    }
+//    public Vehicle(Vehicle vehicle) {
+//        this.brand = vehicle.getBrand();
+//        this.model = vehicle.getModel();
+//    }
 
 
     public String getBrand() {
