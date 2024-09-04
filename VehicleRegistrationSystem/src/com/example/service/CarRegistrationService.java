@@ -12,7 +12,6 @@ public class CarRegistrationService extends VehicleRegisterService {
         int doors = Integer.parseInt(br.readLine());
 
         Vehicle car = new Car(super.getVehicle().getBrand(), super.getVehicle().getModel(), doors);
-        super.setVehicle(car);
         vehicles[Vehicle.getVehicleCount()-1] = car;
 
     }
