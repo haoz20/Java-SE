@@ -13,6 +13,5 @@ public class CarRegistrationService extends VehicleRegisterService {
 
         Vehicle car = new Car(super.getVehicle().getBrand(), super.getVehicle().getModel(), doors);
         vehicles[Vehicle.getVehicleCount()-1] = car;
-
     }
 }

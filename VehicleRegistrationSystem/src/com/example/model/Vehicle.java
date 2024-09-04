@@ -11,11 +11,6 @@ public class Vehicle {
         vehicleCount++;
     }
 
-//    public Vehicle(Vehicle vehicle) {
-//        this.brand = vehicle.getBrand();
-//        this.model = vehicle.getModel();
-//    }
-
 
     public String getBrand() {
         return brand;
