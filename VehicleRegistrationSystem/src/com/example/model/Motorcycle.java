@@ -8,6 +8,10 @@ public class Motorcycle extends Vehicle {
         this.hasSidecar = hasSidecar;
     }
 
+    public Motorcycle (Vehicle vehicle, Boolean hasSidecar) {
+        super(vehicle);
+        this.hasSidecar = hasSidecar;
+    }
 
     public Boolean getHasSidecar() {
         return this.hasSidecar;

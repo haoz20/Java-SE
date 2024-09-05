@@ -10,7 +10,7 @@ public class TruckRegistrationService extends VehicleRegisterService {
         System.out.print("Enter payload Capacity: ");
         double payloadCapacity = Double.parseDouble(br.readLine());
 
-        Vehicle truck = new Truck(super.getVehicle().getBrand(), super.getVehicle().getModel(), payloadCapacity);
+        Vehicle truck = new Truck(super.getVehicle(), payloadCapacity);
         vehicles[Vehicle.getVehicleCount()-1] = truck;
 
     }
