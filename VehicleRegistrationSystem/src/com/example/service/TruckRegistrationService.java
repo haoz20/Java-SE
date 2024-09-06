@@ -6,12 +6,11 @@ import java.io.IOException;
 public class TruckRegistrationService extends VehicleRegisterService {
 
     @Override
-    public void registerProcess() throws IOException {
+    public Vehicle registerProcess() throws IOException {
         System.out.print("Enter payload Capacity: ");
         double payloadCapacity = Double.parseDouble(br.readLine());
 
         Vehicle truck = new Truck(super.getVehicle(), payloadCapacity);
-        vehicles[Vehicle.getVehicleCount()-1] = truck;
-
+        return truck;
     }
 }

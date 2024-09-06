@@ -4,8 +4,9 @@ import com.example.model.*;
 import java.io.IOException;
 
 public class MotorcycleRegistrationService extends VehicleRegisterService {
+
     @Override
-    public void registerProcess() throws IOException {
+    public Vehicle registerProcess() throws IOException {
         Boolean hasSideCar = null;
         System.out.print("Does the motorcycle has sdie car? (Yes/No): ");
         String answer = br.readLine();
@@ -16,7 +17,6 @@ public class MotorcycleRegistrationService extends VehicleRegisterService {
         }
 
         Vehicle motorcycle = new Motorcycle(super.getVehicle(), hasSideCar);
-        vehicles[Vehicle.getVehicleCount()-1] = motorcycle;
-
+        return motorcycle;
     }
 }

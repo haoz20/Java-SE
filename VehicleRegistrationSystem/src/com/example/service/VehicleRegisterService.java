@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dao.VehicleDao;
 import com.example.model.*;
 
 import java.io.BufferedReader;
@@ -8,8 +9,12 @@ import java.io.InputStreamReader;
 
 public class VehicleRegisterService {
     private Vehicle vehicle;
-    public static Vehicle[] vehicles = new Vehicle[100];
+    private VehicleDao vehicles;
     public BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    public VehicleRegisterService() {
+        this.vehicles = new VehicleDao();
+    }
 
     public Vehicle getVehicle() {
         return vehicle;
@@ -21,7 +26,7 @@ public class VehicleRegisterService {
 
     public void create() throws IOException {
         commonRegisterProcess();
-        registerProcess();
+        this.vehicles.create(registerProcess());
     }
 
     public void commonRegisterProcess() throws IOException {
@@ -35,15 +40,15 @@ public class VehicleRegisterService {
 
     }
 
-    public void registerProcess() throws IOException {
-
+    public Vehicle registerProcess() throws IOException {
+        return null;
     }
 
     public void display() {
         for (int i = 0; i < Vehicle.getVehicleCount(); i++) {
-            vehicles[i].displayInfo();
+            this.vehicles.getAll()[i].displayInfo();
         }
-        System.out.println(Vehicle.getVehicleCount());
+        System.out.println("The total number of vehicles: " + Vehicle.getVehicleCount());
     }
 
 }

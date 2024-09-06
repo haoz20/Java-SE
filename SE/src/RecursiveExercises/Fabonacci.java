@@ -2,7 +2,7 @@ package RecursiveExercises;
 
 public class Fabonacci {
     public static void main(String[] args) {
-        System.out.println(fibonacci(2));
+        System.out.println(fibonacci());
     }
 
     public static int fibonacci(int n) {
